@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Client Lunch Simulator — The Business Table</title>
+  <meta name="description" content="A role-play simulator: host a business lunch with a prospective client and see how your table manners affect the deal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/simulator.css">
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="The Business Table — home"><span>✦</span> The Business Table</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav aria-label="Main">
+      <ul id="menu">
+        <li><a class="link" href="index.html">← Home</a></li>
+        <li><a class="link" href="index.html#setting">Place setting</a></li>
+        <li><a class="link" href="index.html#games">Games</a></li>
+        <li><a class="link" href="simulator.html" aria-current="page">Simulator</a></li>
+        <li><a class="link" href="index.html#carreno">Carreño</a></li>
+        <li><a class="link" href="survey.html">Survey &amp; Sources</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Role-play simulator</span>
+      <h1>Lunch with a client</h1>
+      <p>You are hosting Ms. Rivera, a prospective client, at a restaurant. Eleven moments, three choices each. Your goal: build rapport, look professional, and leave her wanting to work with you.</p>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:2.5rem">
+    <div class="wrap">
+      <div class="sim" id="sim">
+        <div class="hud">
+          <div class="meter-box"><label for="mR">🤝 Rapport</label><div class="gauge"><i id="mR"></i></div><b id="vR">50</b></div>
+          <div class="meter-box"><label for="mP">🎩 Professionalism</label><div class="gauge"><i id="mP"></i></div><b id="vP">50</b></div>
+          <div class="meter-box"><label for="mD">📈 Deal chance</label><div class="gauge deal"><i id="mD"></i></div><b id="vD">50%</b></div>
+        </div>
+
+        <div class="stage-sim" id="stageSim">
+          <div class="room-label" id="room">Scene 1 / 11 · The entrance</div>
+          <div class="client">
+            <svg viewBox="0 0 200 220" id="avatar" role="img" aria-label="Ms. Rivera, the client">
+              <ellipse cx="100" cy="212" rx="70" ry="8" fill="#000" opacity=".2"/>
+              <path d="M30 220c0-48 30-70 70-70s70 22 70 70z" fill="#1c2f4a"/>
+              <path d="M88 150l12 26 12-26z" fill="#fff"/>
+              <path d="M96 160l4 8 4-8z" fill="#7a1f33"/>
+              <rect x="86" y="120" width="28" height="34" rx="10" fill="#d9a074"/>
+              <ellipse cx="100" cy="92" rx="42" ry="48" fill="#e6b184"/>
+              <path d="M54 92c-4-52 30-66 52-62 30 2 44 28 40 62-8-26-22-34-46-34s-38 10-46 34z" fill="#2d1b14"/>
+              <path d="M54 92c-4 30 6 52 14 58-2-24-2-44 2-58z" fill="#2d1b14"/>
+              <path d="M146 92c4 30-6 52-14 58 2-24 2-44-2-58z" fill="#2d1b14"/>
+              <g id="eyes"><ellipse cx="84" cy="94" rx="5" ry="6" fill="#2b2b2b" class="blink"/><ellipse cx="116" cy="94" rx="5" ry="6" fill="#2b2b2b" class="blink"/></g>
+              <g id="brows" stroke="#2d1b14" stroke-width="3.5" stroke-linecap="round" fill="none"><path id="bL" d="M74 80q10-6 20 0"/><path id="bR" d="M106 80q10-6 20 0"/></g>
+              <path id="mouth" d="M86 118q14 14 28 0" stroke="#8b2f2f" stroke-width="4" stroke-linecap="round" fill="none"/>
+              <circle cx="72" cy="108" r="7" fill="#e58a8a" opacity=".35"/><circle cx="128" cy="108" r="7" fill="#e58a8a" opacity=".35"/>
+            </svg>
+            <div class="nameplate">Ms. Rivera <small>Procurement director · prospective client</small></div>
+          </div>
+          <div class="dialog">
+            <p class="narr" id="narr"></p>
+            <div class="bubble" id="bubble" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="choices" id="choices" role="group" aria-label="Your options"></div>
+        <div class="fb-panel" id="fb" hidden role="status"></div>
+        <div class="end-panel" id="end" hidden></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> The Business Table · Homework #4 · Fernando Olivares Molero</span>
+    <span><a href="index.html">Home</a> · <a href="survey.html">Survey &amp; sources</a></span>
+  </div>
+</footer>
+<script src="js/app.js"></script>
+<script src="js/simulator.js"></script>
+</body>
+</html>

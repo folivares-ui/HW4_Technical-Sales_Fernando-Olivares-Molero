@@ -319,7 +319,11 @@
 
     // optional real YouTube embed: set data-video-id on #ytWrap in index.html
     const yt = $('#ytWrap');
-    if (yt && /^[\w-]{11}$/.test(yt.dataset.videoId || '')) {
+    if (yt && /^[\w./-]+\.(mp4|webm)$/i.test(yt.dataset.videoSrc || '')) {
+      yt.hidden = false;
+      yt.innerHTML = '<h3>Extra: AI-generated video</h3><video class="embed" controls preload="metadata" playsinline></video><p class="hint">AI-generated video with fictional people.</p>';
+      yt.querySelector('video').src = yt.dataset.videoSrc;
+    } else if (yt && /^[\w-]{11}$/.test(yt.dataset.videoId || '')) {
       yt.hidden = false;
       yt.innerHTML = `<h3>Extra: full video</h3><iframe class="embed" src="https://www.youtube-nocookie.com/embed/${yt.dataset.videoId}" title="Business dining etiquette video" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
     }
