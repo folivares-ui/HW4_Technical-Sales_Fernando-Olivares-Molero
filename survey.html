@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Survey &amp; Sources — The Business Table</title>
+  <meta name="description" content="Survey questions about what students learned about business dining, plus the sources used for this website.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="The Business Table — home"><span>✦</span> The Business Table</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav aria-label="Main">
+      <ul id="menu">
+        <li><a class="link" href="index.html">← Home</a></li>
+        <li><a class="link" href="index.html#setting">Place setting</a></li>
+        <li><a class="link" href="index.html#games">Games</a></li>
+        <li><a class="link" href="index.html#carreno">Carreño</a></li>
+        <li><a class="link" href="survey.html" aria-current="page">Survey &amp; Sources</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Your turn</span>
+      <h1>What did you learn?</h1>
+      <p>These questions can be used to survey students after they visit the site. Try them yourself: rate each statement from 1 (strongly disagree) to 5 (strongly agree).</p>
+    </div>
+  </section>
+
+  <section class="block" id="survey">
+    <div class="wrap" style="max-width:820px">
+      <form id="surveyForm" novalidate>
+        <div class="survey-q reveal"><p><span class="num">1.</span>Before visiting this website, I felt confident about my business dining etiquette.</p><div class="likert" role="radiogroup" aria-label="Question 1"><label><input type="radio" name="q1" value="1"><span>1</span></label><label><input type="radio" name="q1" value="2"><span>2</span></label><label><input type="radio" name="q1" value="3"><span>3</span></label><label><input type="radio" name="q1" value="4"><span>4</span></label><label><input type="radio" name="q1" value="5"><span>5</span></label></div></div>
+        <div class="survey-q reveal"><p><span class="num">2.</span>After visiting this website, I feel more confident about my business dining etiquette.</p><div class="likert" role="radiogroup" aria-label="Question 2"><label><input type="radio" name="q2" value="1"><span>1</span></label><label><input type="radio" name="q2" value="2"><span>2</span></label><label><input type="radio" name="q2" value="3"><span>3</span></label><label><input type="radio" name="q2" value="4"><span>4</span></label><label><input type="radio" name="q2" value="5"><span>5</span></label></div></div>
+        <div class="survey-q reveal"><p><span class="num">3.</span>I can explain which utensils to use first and where the bread plate and glasses belong (“outside-in” and “BMW”).</p><div class="likert" role="radiogroup" aria-label="Question 3"><label><input type="radio" name="q3" value="1"><span>1</span></label><label><input type="radio" name="q3" value="2"><span>2</span></label><label><input type="radio" name="q3" value="3"><span>3</span></label><label><input type="radio" name="q3" value="4"><span>4</span></label><label><input type="radio" name="q3" value="5"><span>5</span></label></div></div>
+        <div class="survey-q reveal"><p><span class="num">4.</span>I know what to do with my phone and when to start talking business during a meal.</p><div class="likert" role="radiogroup" aria-label="Question 4"><label><input type="radio" name="q4" value="1"><span>1</span></label><label><input type="radio" name="q4" value="2"><span>2</span></label><label><input type="radio" name="q4" value="3"><span>3</span></label><label><input type="radio" name="q4" value="4"><span>4</span></label><label><input type="radio" name="q4" value="5"><span>5</span></label></div></div>
+        <div class="survey-q reveal"><p><span class="num">5.</span>The interactive place-setting picture helped me understand the table.</p><div class="likert" role="radiogroup" aria-label="Question 5"><label><input type="radio" name="q5" value="1"><span>1</span></label><label><input type="radio" name="q5" value="2"><span>2</span></label><label><input type="radio" name="q5" value="3"><span>3</span></label><label><input type="radio" name="q5" value="4"><span>4</span></label><label><input type="radio" name="q5" value="5"><span>5</span></label></div></div>
+        <div class="survey-q reveal"><p><span class="num">6.</span>The games and the video lesson made learning the material more enjoyable.</p><div class="likert" role="radiogroup" aria-label="Question 6"><label><input type="radio" name="q6" value="1"><span>1</span></label><label><input type="radio" name="q6" value="2"><span>2</span></label><label><input type="radio" name="q6" value="3"><span>3</span></label><label><input type="radio" name="q6" value="4"><span>4</span></label><label><input type="radio" name="q6" value="5"><span>5</span></label></div></div>
+        <div class="survey-q reveal"><p><span class="num">7.</span>The website was easy to navigate and easy to read.</p><div class="likert" role="radiogroup" aria-label="Question 7"><label><input type="radio" name="q7" value="1"><span>1</span></label><label><input type="radio" name="q7" value="2"><span>2</span></label><label><input type="radio" name="q7" value="3"><span>3</span></label><label><input type="radio" name="q7" value="4"><span>4</span></label><label><input type="radio" name="q7" value="5"><span>5</span></label></div></div>
+        <div class="survey-q reveal"><p><span class="num">8.</span>I would feel comfortable attending a business lunch or dinner after using this site.</p><div class="likert" role="radiogroup" aria-label="Question 8"><label><input type="radio" name="q8" value="1"><span>1</span></label><label><input type="radio" name="q8" value="2"><span>2</span></label><label><input type="radio" name="q8" value="3"><span>3</span></label><label><input type="radio" name="q8" value="4"><span>4</span></label><label><input type="radio" name="q8" value="5"><span>5</span></label></div></div>
+        <div class="survey-q reveal"><p><span class="num">9.</span>What is the single most useful thing you learned about business dining?</p><textarea class="open" name="q9" aria-label="Question 9 answer"></textarea></div>
+        <div class="survey-q reveal"><p><span class="num">10.</span>What topic would you like more information about, and how could this site be improved?</p><textarea class="open" name="q10" aria-label="Question 10 answer"></textarea></div>
+        <div class="cta-row">
+          <button class="btn btn-dark" type="submit">See my summary</button>
+          <button class="btn btn-ghost" type="reset" style="color:var(--green-800);border-color:var(--green-800)">Clear</button>
+        </div>
+      </form>
+      <div class="card" id="surveyOut" hidden style="margin-top:2rem" role="status"></div>
+    </div>
+  </section>
+
+  <section class="block alt" id="sources">
+    <div class="wrap" style="max-width:820px">
+      <div class="section-head reveal">
+        <span class="kicker">References</span>
+        <h2>Sources</h2>
+        <p>All explanations on this website are written in my own words. The ideas come from the sources below and from commonly taught dining conventions.</p>
+      </div>
+      <h3>Primary source used</h3>
+      <ol class="refs">
+        <li>Carreño, Manuel Antonio. <em>Manual de urbanidad y buenas maneras</em> — chapters “De la mesa” and “De los banquetes”. Short Spanish phrases are quoted from the Spanish text and then explained in my own words on the <a href="index.html#carreno">Carreño section</a>. Section numbers (§) refer to the numbered paragraphs within those chapters in the digital copy I used; page numbers may differ in other editions.</li>
+      </ol>
+      <h3>Further reading <span class="pill">suggested by the course</span></h3>
+      <ul class="refs">
+        <li><a href="https://training.businessmanagementdaily.com/3013/14-tips-on-business-etiquette/" target="_blank" rel="noopener noreferrer">14 Tips on Business Etiquette — Business Management Daily</a></li>
+        <li><a href="http://ownthedollar.com/2009/05/top-ten-etiquette-tips-business-dinner-interview/" target="_blank" rel="noopener noreferrer">Top Ten Etiquette Tips: Business Dinner Interview — Own the Dollar</a></li>
+        <li><a href="http://hubpages.com/hub/Business-Dining-Etiquette-10-Tips-for-showing-good-manners-over-lunch-or-dinner" target="_blank" rel="noopener noreferrer">Business Dining Etiquette: 10 Tips — HubPages</a></li>
+        <li><a href="http://www.chiff.com/a/business-dining.htm" target="_blank" rel="noopener noreferrer">Business Dining — Chiff.com</a></li>
+        <li><a href="http://www.overstock.com/guides/table-setting-buying-guide" target="_blank" rel="noopener noreferrer">Table Setting Buying Guide — Overstock</a></li>
+        <li>Wall Street Journal: “How to charm and do business over dinner” (search the WSJ website for the article).</li>
+      </ul>
+      <p class="hint">Links open in a new tab. Some of these pages may have moved or changed since the course listed them.</p>
+      <p><a class="btn btn-dark" href="index.html">← Back to the guide</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> The Business Table · Homework #4 · Fernando Olivares Molero</span>
+    <span><a href="index.html">Home</a> · <a href="#survey">Survey</a></span>
+  </div>
+</footer>
+<script src="js/app.js"></script>
+</body>
+</html>

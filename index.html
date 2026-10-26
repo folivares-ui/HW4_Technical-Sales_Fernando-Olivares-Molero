@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Business Table — Dining Etiquette for Students</title>
+  <meta name="description" content="An interactive guide to business dining etiquette for students: place-setting explorer, games, a video lesson, and timeless advice from Carreño.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="The Business Table — home"><span>✦</span> The Business Table</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav aria-label="Main">
+      <ul id="menu">
+        <li><a class="link" href="#why">Why it matters</a></li>
+        <li><a class="link" href="#setting">Place setting</a></li>
+        <li><a class="link" href="#timeline">Before · During · After</a></li>
+        <li><a class="link" href="#games">Games</a></li>
+        <li><a class="link" href="#video">Video</a></li>
+        <li><a class="link" href="#carreno">Carreño</a></li>
+        <li><a class="link" href="survey.html">Survey &amp; Sources</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">A guide for first-timers</span>
+        <h1>Dine with <em>confidence</em>, close with class.</h1>
+        <p class="lead">Your first business lunch can feel like a test with no study guide. This site is the study guide — play with it, practice with it, and walk into the restaurant ready.</p>
+        <div class="cta-row">
+          <a class="btn btn-gold" href="#setting">Explore the table →</a>
+          <a class="btn btn-ghost" href="#games">Jump to the games</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>4</b><span>mini-games</span></div>
+          <div><b>10</b><span>tappable table items</span></div>
+          <div><b>1</b><span>video lesson</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 520 440" role="img" aria-label="Illustration of a plate with fork, knife and glass">
+          <defs>
+            <linearGradient id="sil" x1="0" x2="1"><stop offset="0" stop-color="#f4f4f1"/><stop offset=".5" stop-color="#c8ccc9"/><stop offset="1" stop-color="#eceeea"/></linearGradient>
+            <radialGradient id="pl" cx=".4" cy=".35"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#e9e2cf"/></radialGradient>
+            <linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".7"/><stop offset="1" stop-color="#bfe3ff" stop-opacity=".25"/></linearGradient>
+          </defs>
+          <ellipse cx="260" cy="400" rx="220" ry="22" fill="#000" opacity=".25"/>
+          <circle cx="260" cy="210" r="170" fill="#c9a24b"/>
+          <circle cx="260" cy="210" r="160" fill="#0f3d2e"/>
+          <circle cx="260" cy="210" r="140" fill="url(#pl)"/>
+          <circle cx="260" cy="210" r="96" fill="none" stroke="#c9a24b" stroke-width="3" stroke-dasharray="3 9"/>
+          <g transform="translate(260 210)"><path d="M0 -60 C 40 -60 60 -20 40 20 C 20 55 -30 55 -45 15 C -58 -20 -30 -60 0 -60Z" fill="#7a1f33" opacity=".85"/><circle cx="-5" cy="-5" r="26" fill="#c9a24b" opacity=".9"/></g>
+          <g transform="translate(70 90)" fill="url(#sil)" stroke="#9aa09b" stroke-width="1"><path d="M-17 0h6v40h5V0h12v40h5V0h6v46q0 22-17 26q-17-4-17-26z"/><rect x="-5" y="66" width="10" height="190" rx="5"/></g>
+          <g transform="translate(455 100)" fill="url(#sil)" stroke="#9aa09b" stroke-width="1"><path d="M-8 0 C 10 12 12 70 9 130 H-8 Z"/><rect x="-8" y="126" width="17" height="130" rx="8"/></g>
+          <g transform="translate(500 335)"><path d="M-26 -90 h52 l-8 70 q-18 18 -36 0 z" fill="url(#gl)" stroke="#fff" stroke-opacity=".6"/><rect x="-3" y="-20" width="6" height="42" fill="#fff" opacity=".6"/><ellipse cx="0" cy="26" rx="22" ry="5" fill="#fff" opacity=".5"/></g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY ================= -->
+  <section class="block" id="why">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Start here</span>
+        <h2>The meal is never just a meal</h2>
+        <p>When a company takes a candidate, client or mentor to a restaurant, the food is the excuse and the conversation is the point. Your table manners quietly tell people how you'd behave in front of a customer.</p>
+      </div>
+      <div class="cards">
+        <article class="card reveal"><span class="ico">👀</span><h3>People notice</h3><p>Small habits — how you treat the server, whether your phone is out — are easy to observe and easy to remember.</p></article>
+        <article class="card reveal"><span class="ico">🧠</span><h3>Rules free your mind</h3><p>Once the basics are automatic, you stop worrying about forks and can focus on listening and asking good questions.</p></article>
+        <article class="card reveal"><span class="ico">📜</span><h3>The ideas are old</h3><p>Over 150 years ago, Manuel Antonio Carreño wrote about composure at the table in his manual of manners. Much of it still holds up — see <a href="#carreno">his advice below</a>.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PLACE SETTING ================= -->
+  <section class="block alt" id="setting">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Interactive picture</span>
+        <h2>Decode the place setting</h2>
+        <p>Tap (or hover and press Enter on) any numbered dot to learn what that item is and how to use it. Two memory tricks cover most of the table: <strong>work from the outside in</strong>, and remember <strong>BMW — Bread, Meal, Water</strong> from left to right.</p>
+      </div>
+      <div class="setting">
+        <svg class="table-svg reveal" id="tableSvg" viewBox="0 0 800 520" role="group" aria-label="Interactive top-down view of a formal place setting">
+          <defs>
+            <linearGradient id="silver" x1="0" x2="1"><stop offset="0" stop-color="#f7f7f4"/><stop offset=".5" stop-color="#bfc4c0"/><stop offset="1" stop-color="#eef0ec"/></linearGradient>
+            <radialGradient id="plateG" cx=".4" cy=".35"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#e6dfcb"/></radialGradient>
+            <linearGradient id="glassG" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#a9d4f5" stop-opacity=".35"/></linearGradient>
+            <g id="fork"><path d="M-17 0h6v40h5V0h12v40h5V0h6v46q0 22-17 26q-17-4-17-26z"/><rect x="-5" y="66" width="10" height="124" rx="5"/></g>
+            <g id="knife"><path d="M-8 0 C 10 12 12 70 9 120 H-8 Z"/><rect x="-8" y="116" width="17" height="76" rx="8"/></g>
+            <g id="spoon"><ellipse cx="0" cy="26" rx="16" ry="27"/><rect x="-5" y="46" width="10" height="144" rx="5"/></g>
+          </defs>
+          <!-- napkin -->
+          <g transform="rotate(-4 150 300)"><rect x="95" y="205" width="95" height="190" rx="8" fill="#7a1f33"/><path d="M95 250h95M95 300h95M95 350h95" stroke="#fff" stroke-opacity=".25"/><rect x="95" y="205" width="95" height="190" rx="8" fill="none" stroke="#c9a24b" stroke-width="2"/></g>
+          <!-- forks -->
+          <g fill="url(#silver)" stroke="#8d938e" stroke-width="1">
+            <use href="#fork" transform="translate(222 208)"/>
+            <use href="#fork" transform="translate(268 216)"/>
+          </g>
+          <!-- charger + plate -->
+          <circle cx="410" cy="300" r="122" fill="#c9a24b"/>
+          <circle cx="410" cy="300" r="112" fill="#d8b45e"/>
+          <circle cx="410" cy="300" r="92" fill="url(#plateG)" stroke="#cfc6ae"/>
+          <circle cx="410" cy="300" r="62" fill="none" stroke="#c9a24b" stroke-width="2" stroke-dasharray="2 8"/>
+          <!-- knife + spoons -->
+          <g fill="url(#silver)" stroke="#8d938e" stroke-width="1">
+            <use href="#knife" transform="translate(552 208)"/>
+            <use href="#spoon" transform="translate(596 216)"/>
+            <use href="#spoon" transform="translate(640 224)"/>
+          </g>
+          <!-- dessert utensils -->
+          <g fill="url(#silver)" stroke="#8d938e" stroke-width="1">
+            <use href="#fork" transform="translate(418 128) rotate(90) scale(.62)"/>
+            <use href="#spoon" transform="translate(432 158) rotate(-90) scale(.62)"/>
+          </g>
+          <!-- bread plate + butter knife -->
+          <circle cx="170" cy="120" r="62" fill="url(#plateG)" stroke="#cfc6ae" stroke-width="2"/>
+          <circle cx="170" cy="120" r="46" fill="none" stroke="#e1d9c2"/>
+          <ellipse cx="160" cy="118" rx="26" ry="16" fill="#d9a35b"/><path d="M142 116q18-12 36 0" stroke="#b97e36" fill="none" stroke-width="2"/>
+          <g transform="translate(205 70) rotate(60) scale(.4)" fill="url(#silver)" stroke="#8d938e" stroke-width="2"><use href="#knife"/></g>
+          <!-- glasses -->
+          <circle cx="560" cy="92" r="40" fill="url(#glassG)" stroke="#8cc2ea" stroke-width="3"/><circle cx="560" cy="92" r="30" fill="none" stroke="#fff" stroke-opacity=".7"/>
+          <circle cx="662" cy="132" r="32" fill="url(#glassG)" stroke="#8cc2ea" stroke-width="3"/><circle cx="662" cy="132" r="22" fill="#7a1f33" fill-opacity=".45"/>
+          <!-- hotspots -->
+          <g id="hotspots"></g>
+        </svg>
+        <aside class="info-panel reveal" id="infoPanel" aria-live="polite">
+          <h3>Pick an item</h3>
+          <p>Choose any numbered dot on the table to see how it works. Start with <strong>7</strong> or <strong>3</strong>.</p>
+          <span class="tag">Tip</span><span class="tag">Outside → in</span><span class="tag">BMW</span>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TIMELINE ================= -->
+  <section class="block" id="timeline">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Your game plan</span>
+        <h2>Before, during, and after</h2>
+        <p>Good dining etiquette starts before you sit down and ends after you leave. Switch tabs and tick each habit as you commit to it.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Meal phases">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="tp-before" id="t-before">1 · Before</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="tp-during" id="t-during">2 · During</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="tp-after" id="t-after">3 · After</button>
+      </div>
+      <div class="tabpanel active" role="tabpanel" id="tp-before" aria-labelledby="t-before">
+        <ul class="checklist">
+          <li tabindex="0"><strong>Answer the invitation promptly</strong>Reply yes or no early, and mention any food restrictions up front.</li>
+          <li tabindex="0"><strong>Look up the restaurant</strong>Skim the menu online so you are not hunting for something affordable and easy to eat.</li>
+          <li tabindex="0"><strong>Dress one notch up</strong>When unsure, pick the slightly more formal outfit; ask your host if you can.</li>
+          <li tabindex="0"><strong>Arrive a few minutes early</strong>Being on time shows respect; silence your phone before you walk in.</li>
+        </ul>
+      </div>
+      <div class="tabpanel" role="tabpanel" id="tp-during" aria-labelledby="t-during">
+        <ul class="checklist">
+          <li tabindex="0"><strong>Follow your host's lead</strong>Sit when invited, unfold your napkin after the host does, and start eating when they do.</li>
+          <li tabindex="0"><strong>Order for ease, not drama</strong>Choose a moderately priced dish that you can eat neatly — skip the messy or very long pasta.</li>
+          <li tabindex="0"><strong>Keep the phone away</strong>Not on the table, not on your lap. Full attention is the best compliment.</li>
+          <li tabindex="0"><strong>Small talk first</strong>Let the conversation warm up; the host usually signals when it is time for business.</li>
+          <li tabindex="0"><strong>Be kind to the staff</strong>Say please and thank you; how you treat servers says a lot about you.</li>
+          <li tabindex="0"><strong>Pace yourself</strong>Eat at the same speed as the group and never talk with a full mouth.</li>
+        </ul>
+      </div>
+      <div class="tabpanel" role="tabpanel" id="tp-after" aria-labelledby="t-after">
+        <ul class="checklist">
+          <li tabindex="0"><strong>Let the host handle the bill</strong>If you invited, you pay. If you were invited, thank them sincerely.</li>
+          <li tabindex="0"><strong>Place your napkin loosely</strong>Leave it to the left of your plate when you are done, not on the plate.</li>
+          <li tabindex="0"><strong>Send a thank-you within a day</strong>A short, specific email or handwritten note makes you memorable.</li>
+          <li tabindex="0"><strong>Follow up on what you discussed</strong>If you promised a résumé, link or introduction, send it promptly.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GAMES ================= -->
+  <section class="block dark" id="games">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Practice time</span>
+        <h2>Four quick games</h2>
+        <p>Learning sticks when you do something with it. Beat all four to earn your “Dinner-Ready” badge.</p>
+      </div>
+
+      <!-- GAME 1 -->
+      <div class="game reveal" id="g1" style="color:var(--ink)">
+        <div class="game-head"><h3>① Set the table</h3><span class="score" id="g1score">0 / 7 placed</span></div>
+        <p class="hint">Drag each piece to its spot (or tap a piece, then tap a spot on a touch screen).</p>
+        <div class="board" id="board">
+          <div class="slot s-bread" data-accept="bread"><span class="q">?</span>Upper left</div>
+          <div class="slot s-dessert" data-accept="dessert"><span class="q">?</span>Above plate</div>
+          <div class="slot s-glass" data-accept="glass"><span class="q">?</span>Upper right</div>
+          <div class="slot s-napkin" data-accept="napkin"><span class="q">?</span>Far left</div>
+          <div class="slot s-fork" data-accept="fork"><span class="q">?</span>Left of plate</div>
+          <div class="slot plate"><span>🍽️ plate</span></div>
+          <div class="slot s-knife" data-accept="knife"><span class="q">?</span>Right of plate</div>
+          <div class="slot s-spoon" data-accept="spoon"><span class="q">?</span>Far right</div>
+        </div>
+        <div class="tray" id="tray"></div>
+        <div class="feedback" id="g1fb" role="status"></div>
+        <button class="btn btn-dark" id="g1reset" type="button">Shuffle &amp; restart</button>
+      </div>
+
+      <!-- GAME 2 -->
+      <div class="game reveal" id="g2" style="color:var(--ink)">
+        <div class="game-head"><h3>② Do or don't?</h3><span class="score" id="g2score">Score 0</span></div>
+        <p class="hint">Read the statement and decide: is it good business dining etiquette?</p>
+        <div class="stage">
+          <div class="big-emoji" id="g2emoji" aria-hidden="true">🤔</div>
+          <p class="statement" id="g2text">Ready? Press start.</p>
+          <div class="pair" id="g2btns">
+            <button class="btn btn-do" data-ans="true" type="button">✓ Do</button>
+            <button class="btn btn-dont" data-ans="false" type="button">✗ Don't</button>
+          </div>
+          <div class="meter" aria-hidden="true"><i id="g2bar"></i></div>
+          <div class="feedback" id="g2fb" role="status"></div>
+          <button class="btn btn-dark" id="g2start" type="button">Start</button>
+        </div>
+      </div>
+
+      <!-- GAME 3 -->
+      <div class="game reveal" id="g3" style="color:var(--ink)">
+        <div class="game-head"><h3>③ What would you do?</h3><span class="score" id="g3score">Question 1 / 6</span></div>
+        <div id="g3body"></div>
+      </div>
+
+      <!-- GAME 4 -->
+      <div class="game reveal" id="g4" style="color:var(--ink)">
+        <div class="game-head"><h3>④ Put the meal in order</h3><span class="score" id="g4score">0 / 6</span></div>
+        <p class="hint">Tap the courses in the order a meal usually unfolds. Start with the very first thing you do after sitting down.</p>
+        <div class="order-grid" id="g4grid"></div>
+        <div class="feedback" id="g4fb" role="status"></div>
+        <button class="btn btn-dark" id="g4reset" type="button">Shuffle &amp; restart</button>
+      </div>
+
+      <div class="game reveal" id="badge" style="color:var(--ink);text-align:center">
+        <div class="badge" style="font-size:4rem" aria-hidden="true">🏅</div>
+        <h3>Dinner-Ready badge</h3>
+        <p id="badgeText">Finish all four games to unlock it. <span id="badgeCount">0</span> / 4 done.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VIDEO ================= -->
+  <section class="block" id="video">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Watch &amp; learn</span>
+        <h2>Video lesson: a business dinner in 6 scenes</h2>
+        <p>Press play for a short illustrated walk-through, or jump to any scene with the dots. It runs about 45 seconds and has captions for every scene.</p>
+      </div>
+      <div class="player reveal" id="player">
+        <div class="screen" id="screen"><div class="bgglow"></div></div>
+        <div class="controls">
+          <button id="pPrev" aria-label="Previous scene" type="button">⏮</button>
+          <button id="pPlay" aria-label="Play" type="button">▶</button>
+          <button id="pNext" aria-label="Next scene" type="button">⏭</button>
+          <div class="timeline" id="pTimeline" aria-hidden="true"><i id="pBar"></i></div>
+          <div class="dots" id="pDots"></div>
+        </div>
+      </div>
+      <div class="embed-wrap" id="ytWrap" data-video-id="" hidden></div>
+    </div>
+  </section>
+
+  <!-- ================= CARREÑO ================= -->
+  <section class="block dark" id="carreno">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Timeless advice</span>
+        <h2>What Carreño would tell you at dinner</h2>
+        <p>Manuel Antonio Carreño's <em>Manual de urbanidad y buenas maneras</em> (19th century) has whole chapters on the table and on banquets. Tap a card to flip it: you'll see a short line from the book in Spanish, then my plain-English version and how it applies to a modern business meal.</p>
+      </div>
+      <div class="flip-grid" id="flipGrid"></div>
+      <p class="note reveal">Heads up: Carreño wrote for his own time, and some of his rules (such as who is seated where, or who serves whom) are very formal and gendered by today's standards. I kept the ideas that still make sense — composure, consideration for others, and moderation. Read the full chapters “De la mesa” and “De los banquetes” in the book for the original wording.</p>
+    </div>
+  </section>
+
+  <!-- ================= LINKS ================= -->
+  <section class="block alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Next steps</span>
+        <h2>Put it into practice</h2>
+      </div>
+      <div class="cards">
+        <article class="card reveal"><span class="ico">📝</span><h3>Tell me what you learned</h3><p>Take the short survey on the next page and see where you'd place yourself.</p><a class="btn btn-dark" href="survey.html">Go to the survey →</a></article>
+        <article class="card reveal"><span class="ico">🍴</span><h3>Pick a place to practise</h3><p>Booking a table with a friend is the easiest way to rehearse. Browse restaurants and reservations on <a href="https://www.opentable.com/" target="_blank" rel="noopener noreferrer">OpenTable (opens in a new tab)</a>.</p></article>
+        <article class="card reveal"><span class="ico">📚</span><h3>Check the sources</h3><p>Every idea on this site is written in my own words. The references page lists what I used and further reading.</p><a href="survey.html#sources">See the sources →</a></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> The Business Table · Homework #4 · Fernando Olivares Molero</span>
+    <span><a href="survey.html">Survey &amp; sources</a> · <a href="#top">Back to top ↑</a></span>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
