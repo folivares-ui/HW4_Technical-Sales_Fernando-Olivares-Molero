@@ -43,7 +43,7 @@
 .choice { text-align: left; font: inherit; cursor: pointer; background: var(--paper); color: var(--ink); border: 2px solid rgba(15,61,46,.2); border-radius: 16px; padding: 1rem 1.2rem 1rem 3.4rem; position: relative; transition: transform .2s, border-color .2s, background .2s; box-shadow: var(--shadow); }
 .choice::before { content: attr(data-n); position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); width: 1.9rem; height: 1.9rem; border-radius: 50%; background: var(--green-800); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: .9rem; }
 .choice:hover:not(:disabled) { transform: translateX(6px); border-color: var(--gold); background: #fffdf5; }
-.choice:disabled { cursor: default; opacity: .55; }
+.choice:disabled { cursor: default; opacity: .8; }
 .choice.picked { opacity: 1; border-color: var(--green-600); background: #f1f8f4; }
 .choice.picked.bad { border-color: var(--bad); background: #fdf1ee; }
 

@@ -11,7 +11,7 @@
   --wine: #7a1f33;
   --cream: #faf6ec;
   --paper: #ffffff;
-  --good: #1f8a5b;
+  --good: #177048;
   --bad: #b3341f;
   --radius: 18px;
   --shadow: 0 10px 30px rgba(10, 42, 32, .12);
@@ -289,7 +289,7 @@ canvas#confetti { position: fixed; inset: 0; pointer-events: none; z-index: 200;
 :root { --ink-soft: #2c3a34; }
 body { font-size: 1.125rem; }
 .section-head p { font-size: 1.22rem; color: #26332d; }
-.dark .section-head p, section.dark p, section.dark li { color: #dbe8e1; }
+.dark .section-head p, .dark .note, .dark .note a { color: #e3eee8; }
 .hint { color: #33423b; font-size: 1rem; }
 .nav a.link { font-size: 1rem; padding: .5rem .75rem; }
 .nav .wrap { gap: .6rem; }
@@ -367,3 +367,22 @@ body { font-size: 1.125rem; }
 .chapter.learned .ch-seek { background: #e7f6ee; border-color: var(--good); }
 .chapter .ch-time { font-size: 1.2rem; color: var(--good); }
 .hv-card img { min-height: 220px; background: linear-gradient(150deg, #1b4c3b, var(--green-900)); }
+
+/* text on light cards that sit inside dark sections */
+.game, .game p, .game li, .game .hint, .game .statement { color: var(--ink); }
+.game .hint { color: #33423b; }
+.face.back, .face.back p, .face.back .biz { color: var(--green-900); }
+.face.back h3 { color: var(--green-900); }
+.fb-panel p, .explain { color: var(--ink); }
+.info-panel p, .info-panel li, .info-panel blockquote { color: #e8efe9; }
+
+/* contrast fixes (audited with a WCAG ratio script) */
+section.dark .game h3, section.dark .game h4, section.dark .game .score { color: var(--green-900); }
+.slot .q { opacity: .75; color: var(--green-800); }
+.btn-do { background: #176b46; }
+.btn-do:hover { background: #115236; }
+.face.back small { color: #6b4e0f; }
+.face.front small { color: #f1d78d; }
+.choice:disabled { opacity: .78; }
+.choice.picked { opacity: 1; }
+.face.back { background: #f6e9c3; }
