@@ -1,3 +1,5 @@
+> Status: the final video is already installed as `video/lesson.mp4` (see README). This brief is kept as the original plan.
+
 # AI video brief — "Business dining etiquette in 60 seconds"
 
 Goal: a ~60–75 s video with **fictional, AI-generated people** (not real individuals) that explains business-dining manners ("modales en la mesa de negocios").

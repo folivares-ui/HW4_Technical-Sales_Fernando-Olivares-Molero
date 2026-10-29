@@ -106,11 +106,13 @@
   }
 
   /* ---------- 2) tabs + checklists ---------- */
-  const tabs = $$('.tab');
-  tabs.forEach(t => t.addEventListener('click', () => {
-    tabs.forEach(x => x.setAttribute('aria-selected', x === t));
-    $$('.tabpanel').forEach(p => p.classList.toggle('active', p.id === t.getAttribute('aria-controls')));
-  }));
+  $$('.tabs').forEach(group => {
+    const gt = $$('.tab', group);
+    gt.forEach(t => t.addEventListener('click', () => {
+      gt.forEach(x => x.setAttribute('aria-selected', x === t));
+      gt.forEach(x => { const p = document.getElementById(x.getAttribute('aria-controls')); if (p) p.classList.toggle('active', x === t); });
+    }));
+  });
   $$('.checklist li').forEach(li => {
     const flip = () => li.classList.toggle('done');
     li.addEventListener('click', flip);
@@ -118,13 +120,8 @@
   });
 
   /* ---------- games bookkeeping ---------- */
-  const done = new Set();
-  function completed(id) {
-    if (done.has(id)) return;
-    done.add(id); confetti();
-    const c = $('#badgeCount'); if (c) c.textContent = done.size;
-    if (done.size === 4) { $('#badgeText').innerHTML = '🎉 <strong>You did it!</strong> You are officially Dinner-Ready. Now take the <a href="survey.html">short survey</a> and tell me how it went.'; confetti(); setTimeout(confetti, 700); }
-  }
+  window.BTconfetti = confetti;
+  function completed(id) { if (window.BT) window.BT.mark(id); }
 
   /* ---------- game 1: set the table ---------- */
   const PIECES = [

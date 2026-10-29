@@ -139,6 +139,7 @@
     const ul = els.end.querySelector('ul'); if (ul) missed.forEach(m => { const li = document.createElement('li'); li.textContent = `${m.scene}: ${m.fb}`; ul.appendChild(li); });
     $('#again').addEventListener('click', () => { i = 0; R = 50; P = 50; good = 0; log = []; show(); });
     els.end.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+    if (deal >= 65 && window.BT) window.BT.mark('sim', { quiet: true });
     if (deal >= 65) { const c = document.getElementById('confetti'); if (c) { /* reuse confetti from app.js via a fake survey submit is not possible; draw minimal burst */ burst(c); } }
   }
   function burst(c) {
