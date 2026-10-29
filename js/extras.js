@@ -59,72 +59,62 @@
   document.body.appendChild(fab);
   addEventListener('scroll', () => fab.classList.toggle('show', scrollY > 700), { passive: true });
 
-  /* ---------- video lesson ---------- */
-  const v = $('#mainVideo');
-  if (!v) return;
-  // Start times (seconds) follow the on-screen captions of video/lesson.mp4.
-  const CH = [
-    [0, '⏰', 'Arrive early', 'Get there a few minutes ahead of time.'],
-    [2, '📵', 'Silence your phone', 'Silence it before you walk in, and keep it away from the table.'],
-    [3, '😊', 'Polite smile', 'Greet people warmly and stay relaxed and friendly.'],
-    [8, '🤝', 'Greet standing', 'Stand to welcome your guest.'],
-    [9, '🪑', 'Guest sits first', 'Offer your guest the seat first, then take yours.'],
-    [11, '🧻', 'Napkin on your lap', 'Once you are seated, unfold your napkin onto your lap.'],
-    [12, '⏳', 'Start with your host', 'Wait for your host to begin before you start eating.'],
-    [13, '🍴', 'Work from the outside in', 'Use the outermost utensil first and move toward the plate.'],
-    [15, '🥖', 'Remember BMW', 'Bread on the left, Meal in the center, Water on the right.'],
-    [17, '💬', 'Keep it light', 'Open with easy, friendly small talk.'],
-    [18, '📊', 'Host leads into business', 'Turn to business only when your host steers the conversation there.'],
-    [20, '🙂', 'Thank the staff', 'Be courteous to the servers.'],
-    [21, '💌', 'Thank your host', 'Thank them in person and follow up with a note.']
+  /* ---------- video lesson (YouTube) ---------- */
+  const host = $('#ytPlayer');
+  if (!host) return;
+  const VID = host.dataset.videoId;
+  const TAKE = [
+    ['⏰', 'Arrive early and silence your phone', 'Be a few minutes early, and keep the phone away from the table.'],
+    ['🤝', 'Greet standing; let your guest sit first', 'Stand to welcome people, and offer the seat before you take yours.'],
+    ['🧻', 'Napkin on your lap', 'Unfold it onto your lap once you are seated.'],
+    ['⏳', 'Start when your host starts', 'Follow your host’s lead on when to begin.'],
+    ['🍴', 'Work from the outside in', 'Use the outermost utensil first and move toward the plate.'],
+    ['🥖', 'Remember BMW', 'Bread on the left, Meal in the center, Water on the right.'],
+    ['💬', 'Light talk first, business when the host leads', 'Warm up with easy conversation before turning to business.'],
+    ['💌', 'Thank the staff and your host', 'Be courteous at the table, then follow up with a note.']
   ];
-  const list = $('#chapters'), now = $('#nowTip'), learnedEl = $('#learnedCount');
-  const learned = new Set(lsGet('bt-learned', []).filter(i => Number.isInteger(i) && i >= 0 && i < CH.length));
-  const end = i => (i + 1 < CH.length ? CH[i + 1][0] : (v.duration || 22.8));
-  const fmt = t => `0:${String(Math.floor(t)).padStart(2, '0')}`;
-  let active = -1;
-
-  CH.forEach((c, i) => {
+  const list = $('#chapters'), learnedEl = $('#learnedCount');
+  const learned = new Set(lsGet('bt-learned2', []).filter(i => Number.isInteger(i) && i >= 0 && i < TAKE.length));
+  const count = () => { learnedEl.textContent = `${learned.size} / ${TAKE.length} learned`; };
+  TAKE.forEach((c, i) => {
     const li = document.createElement('li'); li.className = 'chapter';
-    li.innerHTML = `<button type="button" class="ch-seek"><span class="ch-ico" aria-hidden="true">${c[1]}</span><span class="ch-txt"><b></b><small></small></span><span class="ch-time">${fmt(c[0])}</span></button><button type="button" class="ch-learn" aria-pressed="false" aria-label="Mark as learned" title="Mark as learned">✓</button>`;
-    $('b', li).textContent = c[2]; $('small', li).textContent = c[3];
-    $('.ch-seek', li).addEventListener('click', () => { v.currentTime = c[0] + .05; v.play().catch(() => {}); });
-    $('.ch-learn', li).addEventListener('click', e => {
-      const on = !learned.has(i); on ? learned.add(i) : learned.delete(i);
-      e.currentTarget.setAttribute('aria-pressed', on); li.classList.toggle('learned', on);
-      lsSet('bt-learned', [...learned]); count();
-    });
-    if (learned.has(i)) { li.classList.add('learned'); $('.ch-learn', li).setAttribute('aria-pressed', 'true'); }
+    li.innerHTML = '<button type="button" class="ch-seek" aria-pressed="false"><span class="ch-ico" aria-hidden="true"></span><span class="ch-txt"><b></b><small></small></span><span class="ch-time" aria-hidden="true">○</span></button>';
+    const btn = $('.ch-seek', li);
+    $('.ch-ico', li).textContent = c[0]; $('b', li).textContent = c[1]; $('small', li).textContent = c[2];
+    const paint = on => { btn.setAttribute('aria-pressed', on); li.classList.toggle('learned', on); $('.ch-time', li).textContent = on ? '✓' : '○'; };
+    paint(learned.has(i));
+    btn.addEventListener('click', () => { const on = !learned.has(i); on ? learned.add(i) : learned.delete(i); paint(on); lsSet('bt-learned2', [...learned]); count(); });
     list.appendChild(li);
   });
-  const items = $$('.chapter', list);
-  function count() { learnedEl.textContent = `${learned.size} / ${CH.length} learned`; }
   count();
 
-  function setActive(i) {
-    if (i === active) return; active = i;
-    items.forEach((li, k) => li.classList.toggle('now', k === i));
-    if (i >= 0) {
-      now.innerHTML = `<span class="now-ico"></span><div><b class="now-title"></b><span class="now-desc"></span></div>`;
-      $('.now-ico', now).textContent = CH[i][1]; $('.now-title', now).textContent = CH[i][2]; $('.now-desc', now).textContent = CH[i][3];
-      now.classList.remove('pop'); void now.offsetWidth; now.classList.add('pop');
-    }
+  // YouTube IFrame Player API; falls back to a plain iframe if the API does not load
+  let yt = null, ready = false, pendingPlay = false;
+  function plainIframe() {
+    host.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${VID}?rel=0" title="Business dining etiquette video lesson" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>`;
   }
-  v.addEventListener('timeupdate', () => {
-    const t = v.currentTime; let i = 0; for (let k = 0; k < CH.length; k++) if (t >= CH[k][0]) i = k;
-    if ($('#vLoop').checked && t >= end(i) - .15 && !v.paused) { v.currentTime = CH[i][0] + .05; return; }
-    setActive(i);
-    const pct = Math.max(0, Math.min(100, (t - CH[i][0]) / (end(i) - CH[i][0]) * 100));
-    items[i].style.setProperty('--p', pct + '%');
-  });
-  v.addEventListener('ended', () => { items.forEach(li => li.style.removeProperty('--p')); toast('Video finished — test yourself with the quiz!'); openQuiz(); });
-  $('#vSpeed').addEventListener('change', e => { v.playbackRate = +e.target.value; });
+  window.onYouTubeIframeAPIReady = () => {
+    try {
+      yt = new YT.Player('ytPlayer', {
+        videoId: VID, host: 'https://www.youtube-nocookie.com',
+        playerVars: { rel: 0, modestbranding: 1, playsinline: 1 },
+        events: {
+          onReady: () => { ready = true; if (pendingPlay) yt.playVideo(); },
+          onStateChange: e => { if (e.data === 0) { toast('Video finished — test yourself with the quiz!'); openQuiz(); } }
+        }
+      });
+    } catch (e) { plainIframe(); }
+  };
+  const tag = document.createElement('script'); tag.src = 'https://www.youtube.com/iframe_api'; tag.async = true; tag.onerror = plainIframe;
+  document.head.appendChild(tag);
+  setTimeout(() => { if (!yt && !$('#ytPlayer iframe')) plainIframe(); }, 8000);
+  $('#vSpeed').addEventListener('change', e => { if (ready && yt.setPlaybackRate) yt.setPlaybackRate(+e.target.value); });
 
   // hero card + hero button jump into the video
-  const goVideo = (play) => {
+  const goVideo = play => {
     const tab = $('#t-video'); if (tab) tab.click();
     $('#video').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-    if (play) setTimeout(() => v.play().catch(() => {}), reduceMotion ? 0 : 600);
+    if (play) { if (ready) setTimeout(() => yt.playVideo(), reduceMotion ? 0 : 600); else pendingPlay = true; }
   };
   const hp = $('#heroPlay'); if (hp) hp.addEventListener('click', () => goVideo(true));
 
@@ -145,10 +135,10 @@
       const pass = qs >= 5;
       qb.innerHTML = `<div class="result"><div class="badge" style="font-size:4rem">${pass ? '🏆' : '📘'}</div><h3></h3><p></p><div class="cta-row" style="justify-content:center"></div></div>`;
       $('h3', qb).textContent = `${qs} / ${Q.length} correct`;
-      $('p', qb).textContent = pass ? 'You know the essentials from the video!' : 'Watch the chapters you missed and try again — you need 5 correct to pass.';
+      $('p', qb).textContent = pass ? 'You know the essentials!' : 'Review the key takeaways and try again — you need 5 correct to pass.';
       const row = $('.cta-row', qb);
       const again = document.createElement('button'); again.type = 'button'; again.className = 'btn btn-dark'; again.textContent = 'Try again'; again.addEventListener('click', () => { qi = 0; qs = 0; renderQ(); });
-      const rewatch = document.createElement('button'); rewatch.type = 'button'; rewatch.className = 'btn btn-ghost'; rewatch.style.cssText = 'color:var(--green-800);border-color:var(--green-800)'; rewatch.textContent = 'Rewatch the video'; rewatch.addEventListener('click', () => { v.currentTime = 0; goVideo(true); });
+      const rewatch = document.createElement('button'); rewatch.type = 'button'; rewatch.className = 'btn btn-ghost'; rewatch.style.cssText = 'color:var(--green-800);border-color:var(--green-800)'; rewatch.textContent = 'Rewatch the video'; rewatch.addEventListener('click', () => { if (ready) yt.seekTo(0, true); goVideo(true); });
       row.append(again, rewatch);
       if (pass) { window.BT.mark('video'); const nx = document.createElement('a'); nx.className = 'btn btn-gold'; nx.href = 'simulator.html'; nx.textContent = 'Next: client simulator →'; row.appendChild(nx); }
       return;

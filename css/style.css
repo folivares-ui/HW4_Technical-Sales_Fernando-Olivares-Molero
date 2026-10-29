@@ -363,3 +363,7 @@ body { font-size: 1.125rem; }
 @media (max-width: 520px) { .brand .the { display: none; } .nav .wrap { padding-inline: 0; } .ch-seek { grid-template-columns: auto 1fr; } .ch-time { display: none; } }
 .nav .wrap { width: min(1360px, 100% - 2rem); }
 .nav a.link { font-size: .95rem; padding: .5rem .6rem; white-space: nowrap; }
+.vframe #ytPlayer, .vframe iframe { display: block; width: 100%; aspect-ratio: 16/9; border: 0; background: #000; }
+.chapter.learned .ch-seek { background: #e7f6ee; border-color: var(--good); }
+.chapter .ch-time { font-size: 1.2rem; color: var(--good); }
+.hv-card img { min-height: 220px; background: linear-gradient(150deg, #1b4c3b, var(--green-900)); }

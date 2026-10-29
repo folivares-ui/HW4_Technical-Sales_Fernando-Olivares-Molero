@@ -7,7 +7,7 @@ Static website (HTML, CSS, JS — no build step). Open `index.html` in a browser
 - External links: OpenTable, course-suggested resources
 
 ## Video
-`video/lesson.mp4` (AI-generated, fictional people, 23 s, 720p) is the main lesson in `index.html#video`; `video/poster.jpg` is its cover image. Chapter start times are defined in `js/extras.js` (`CH` array) and follow the on-screen captions of the video; edit them if you replace the video.
+The main video is embedded from YouTube (`data-video-id` on `#ytPlayer` in `index.html`). Opened as a local file (`file://`), YouTube may refuse to play embedded videos; use GitHub Pages or a local server (`python3 -m http.server`) instead.
 
 ## Progress & accessibility
 Progress (games, simulator, video quiz) and text size (A−/A+) are saved in the browser's localStorage only; nothing is sent anywhere.

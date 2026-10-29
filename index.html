@@ -53,12 +53,12 @@
         </div>
       </div>
       <div class="hero-art hero-video">
-        <button class="hv-card" id="heroPlay" type="button" aria-label="Watch the 23-second video lesson">
-          <img src="video/poster.jpg" alt="A man checks his watch in a restaurant lobby, arriving early" width="1280" height="720">
+        <button class="hv-card" id="heroPlay" type="button" aria-label="Watch the video lesson">
+          <img src="https://i.ytimg.com/vi/aDJc5OCMnfE/hqdefault.jpg" alt="" width="480" height="360" onerror="this.remove()">
           <span class="hv-play" aria-hidden="true">▶</span>
-          <span class="hv-cap">Watch the 23-second lesson</span>
+          <span class="hv-cap">Watch the video lesson</span>
         </button>
-        <small class="hv-note">AI-generated video with fictional people</small>
+        <small class="hv-note">Video on YouTube</small>
       </div>
     </div>
   </section>
@@ -68,8 +68,8 @@
     <div class="wrap">
       <div class="section-head reveal">
         <span class="kicker">Watch &amp; learn</span>
-        <h2>Business dining in 23 seconds</h2>
-        <p>An AI-generated video with fictional people shows the essentials. Press play, or tap any chapter to jump straight to that tip.</p>
+        <h2>Watch the video lesson</h2>
+        <p>Press play, then check off the key takeaways and test yourself with a short quiz.</p>
       </div>
       <div class="tabs" role="tablist" aria-label="Video versions">
         <button class="tab" role="tab" aria-selected="true" aria-controls="tp-video" id="t-video" type="button">🎬 Video</button>
@@ -80,24 +80,20 @@
         <div class="vgrid">
           <div class="vmain">
             <div class="vframe">
-              <video id="mainVideo" poster="video/poster.jpg" preload="metadata" playsinline controls>
-                <source src="video/lesson.mp4" type="video/mp4">
-                Your browser cannot play this video.
-              </video>
-              <span class="ai-badge">AI-generated · fictional people</span>
+              <div id="ytPlayer" data-video-id="aDJc5OCMnfE"></div>
             </div>
-            <div class="now" id="nowTip" aria-live="polite"><span class="now-ico">▶</span><div><b class="now-title">Press play to begin</b><span class="now-desc">Each chapter gives you one tip.</span></div></div>
+            <p class="hint" style="margin:.8rem 0 0">Video not loading? <a href="https://youtu.be/aDJc5OCMnfE" target="_blank" rel="noopener noreferrer">Watch it on YouTube (opens in a new tab)</a>.</p>
             <div class="vtools">
               <label>Speed
                 <select id="vSpeed"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option></select>
               </label>
-              <label class="chk"><input type="checkbox" id="vLoop"> Loop this chapter</label>
               <button class="btn btn-dark" id="vQuizBtn" type="button">Test yourself →</button>
             </div>
           </div>
           <div class="vside">
-            <div class="vside-head"><h3>Chapters</h3><span id="learnedCount" class="score">0 / 13 learned</span></div>
-            <ol class="chapters" id="chapters" aria-label="Video chapters"></ol>
+            <div class="vside-head"><h3>Key takeaways</h3><span id="learnedCount" class="score">0 / 8 learned</span></div>
+            <p class="hint" style="margin:0 0 .8rem">Tap a card when you feel you know it.</p>
+            <ol class="chapters" id="chapters" aria-label="Key takeaways"></ol>
           </div>
         </div>
         <div class="vquiz" id="vquiz" hidden></div>
